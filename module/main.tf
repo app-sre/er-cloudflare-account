@@ -29,4 +29,8 @@ resource "cloudflare_account_member" "this" {
   account_id = cloudflare_account.this.id
   email      = each.value.email
   roles      = [for role_name in each.value.roles : local.role_id_by_name[role_name]]
+
+  lifecycle {
+    ignore_changes = [status]
+  }
 }
