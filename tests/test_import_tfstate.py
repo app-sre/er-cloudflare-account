@@ -8,7 +8,6 @@ import pytest
 from cloudflare.types.shared.member import Member, User
 
 from er_cloudflare_account.import_tfstate import (
-    AccountNotFoundError,
     main,
     sanitize_email,
 )
@@ -210,21 +209,6 @@ def test_dry_run_flag(
         ["import", "cloudflare_account.this", "acct-123"],
         dry_run=True,
     )
-
-
-def test_account_id_required(
-    mock_non_dry_run: None,  # noqa: ARG001
-    mock_cloudflare: MagicMock,
-    mock_read_input: MagicMock,
-) -> None:
-    """Test AccountNotFoundError when account_id is not provided."""
-    input_data = build_input_data()
-    input_data["data"]["account_id"] = None
-    mock_read_input.return_value = input_data
-    setup_cloudflare_client(mock_cloudflare)
-
-    with pytest.raises(AccountNotFoundError, match=r"Account ID is required"):
-        main()
 
 
 @pytest.mark.parametrize(

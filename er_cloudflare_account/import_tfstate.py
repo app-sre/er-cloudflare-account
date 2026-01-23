@@ -20,10 +20,6 @@ from .app_interface_input import (
 logger = logging.getLogger(__name__)
 
 
-class AccountNotFoundError(Exception):
-    """Raised when an account cannot be found in Cloudflare."""
-
-
 class ImportResult(BaseModel):
     """Result of a terraform import operation."""
 
@@ -165,11 +161,6 @@ def import_state(
     Returns:
         List of ImportResult for each import operation.
     """
-    if account.account_id is None:
-        msg = "Account ID is required for import"
-        logger.error(msg)
-        raise AccountNotFoundError(msg)
-
     logger.info("Importing resources for account ID: %s", account.account_id)
 
     return [

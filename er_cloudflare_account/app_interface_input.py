@@ -20,7 +20,7 @@ class CloudflareAccount(BaseModel):
     https://registry.terraform.io/providers/cloudflare/cloudflare/latest/docs/resources/account
     """
 
-    account_id: str | None = None
+    account_id: str
     name: str
     type: str | None = None
     enforce_twofactor: bool | None = None
@@ -28,7 +28,7 @@ class CloudflareAccount(BaseModel):
 
 
 class AppInterfaceInput(BaseModel):
-    """Input model for AWS MSK"""
+    """Input model for Cloudflare Account"""
 
     data: CloudflareAccount
     provision: AppInterfaceProvision

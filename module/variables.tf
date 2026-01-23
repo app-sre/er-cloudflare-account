@@ -1,6 +1,5 @@
 variable "account_id" {
-  type    = string
-  default = null
+  type = string
 }
 
 variable "enforce_twofactor" {
