@@ -10,6 +10,15 @@ def raw_input_data() -> dict:
     return {
         "data": {
             "account_id": "some-id",
+            "name": "cloudflare-account-example",
+            "type": "standard",
+            "enforce_twofactor": True,
+            "members": [
+                {
+                    "email": "test@example.com",
+                    "roles": ["Administrator Read Only"],
+                },
+            ],
         },
         "provision": {
             "provision_provider": "cloudflare",
