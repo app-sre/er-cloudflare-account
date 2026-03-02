@@ -3,7 +3,7 @@ from unittest.mock import MagicMock, patch
 
 import pytest
 
-from er_cloudflare_account.__main__ import get_ai_input  # noqa: PLC2701
+from er_cloudflare_account.__main__ import get_ai_input
 from er_cloudflare_account.app_interface_input import AppInterfaceInput
 
 
