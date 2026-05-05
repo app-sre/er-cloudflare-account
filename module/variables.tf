@@ -15,8 +15,3 @@ variable "members" {
 variable "name" {
   type = string
 }
-
-variable "type" {
-  type    = string
-  default = null
-}
