@@ -11,7 +11,6 @@ def raw_input_data() -> dict:
         "data": {
             "account_id": "some-id",
             "name": "cloudflare-account-example",
-            "type": "standard",
             "enforce_twofactor": True,
             "members": [
                 {

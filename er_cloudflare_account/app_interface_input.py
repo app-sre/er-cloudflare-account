@@ -22,7 +22,6 @@ class CloudflareAccount(BaseModel):
 
     account_id: str
     name: str
-    type: str | None = None
     enforce_twofactor: bool | None = None
     members: list[CloudflareAccountMember] = []
 
