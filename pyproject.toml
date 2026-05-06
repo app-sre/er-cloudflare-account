@@ -1,6 +1,6 @@
 [project]
 name = "er-cloudflare-account"
-version = "0.2.0"
+version = "0.3.0"
 description = "ERv2 module for managing Cloudflare Account"
 authors = [
     # Feel free to add or change authors
@@ -11,7 +11,7 @@ readme = "README.md"
 requires-python = "~= 3.12.0"
 dependencies = [
     "cloudflare==5.0.0",
-    "external-resources-io==0.6.3",
+    "external-resources-io==0.6.4",
     "pydantic==2.13.3",
 ]
 
@@ -22,7 +22,7 @@ documentation = "https://github.com/app-sre/er-cloudflare-account"
 
 [dependency-groups]
 dev = [
-    "external-resources-io[cli]==0.6.3",
+    "external-resources-io[cli]==0.6.4",
     "mypy==1.20.2",
     "pytest==9.0.3",
     "pytest-cov==7.1.0",
