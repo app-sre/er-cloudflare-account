@@ -1,10 +1,13 @@
-from collections.abc import Iterator
+from typing import TYPE_CHECKING
 from unittest.mock import MagicMock, patch
 
 import pytest
 
 from er_cloudflare_account.__main__ import get_ai_input
 from er_cloudflare_account.app_interface_input import AppInterfaceInput
+
+if TYPE_CHECKING:
+    from collections.abc import Iterator
 
 
 @pytest.fixture

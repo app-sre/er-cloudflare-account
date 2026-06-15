@@ -19,5 +19,5 @@ def main() -> None:
     create_tf_vars_json(ai_input.data, exclude_none=False)
 
 
-if __name__ == "__main__":
+if __name__ == "__main__":  # pragma: no cover
     main()
