@@ -1,6 +1,6 @@
 [project]
 name = "er-cloudflare-account"
-version = "0.3.0"
+version = "0.4.0"
 description = "ERv2 module for managing Cloudflare Account"
 authors = [
     # Feel free to add or change authors
@@ -8,7 +8,7 @@ authors = [
 ]
 license = { text = "Apache 2.0" }
 readme = "README.md"
-requires-python = "~= 3.12.0"
+requires-python = "~= 3.14.0"
 dependencies = [
     "cloudflare==5.0.0",
     "external-resources-io==0.6.4",
@@ -102,6 +102,13 @@ preview = true
 
 [tool.ruff.lint.isort]
 known-first-party = ["er_cloudflare_account"]
+
+[tool.ruff.lint.flake8-type-checking]
+runtime-evaluated-base-classes = ["pydantic.BaseModel"]
+runtime-evaluated-decorators = [
+    "pydantic.validate_call",
+    "dataclasses.dataclass",
+]
 
 # Mypy configuration
 [tool.mypy]

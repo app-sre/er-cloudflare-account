@@ -1,19 +1,14 @@
-FROM quay.io/redhat-services-prod/app-sre-tenant/er-base-terraform-main/er-base-terraform-main:0.5.0-10@sha256:a89193c06fa60ab7f0b8f026fcbf8aaf2452ef1b0c494fb7f57e6c3e25dc1ed9 AS base
+FROM quay.io/redhat-services-prod/app-sre-tenant/er-base-terraform-main/er-base-terraform-main:0.6.0-1@sha256:f234d99c2970151dc445ecd0870bd320c3ccdb9a9e579f97a84779a640f2f1ee AS base
 # keep in sync with pyproject.toml
-LABEL konflux.additional-tags="0.3.0"
+LABEL konflux.additional-tags="0.4.0"
 COPY LICENSE /licenses/
-ENV VIRTUAL_ENV="${APP}/.venv" \
-    PATH="${APP}/.venv/bin:${PATH}" \
-    TERRAFORM_MODULE_SRC_DIR="./module"
+ENV TERRAFORM_MODULE_SRC_DIR="./module"
 
 #
 # Builder image
 #
 FROM base AS builder
 COPY --from=ghcr.io/astral-sh/uv:0.11.21@sha256:ff07b86af50d4d9391d9daf4ff89ce427bc544f9aae87057e69a1cc0aa369946 /uv /bin/uv
-
-ENV UV_COMPILE_BYTECODE="true" \
-    UV_NO_CACHE=true
 
 # Terraform code
 COPY ${TERRAFORM_MODULE_SRC_DIR} ${TERRAFORM_MODULE_SRC_DIR}
@@ -45,4 +40,4 @@ RUN make test
 #
 FROM base AS prod
 COPY --from=builder ${TF_PLUGIN_CACHE_DIR} ${TF_PLUGIN_CACHE_DIR}
-COPY --from=builder ${APP} ${APP}
+COPY --from=builder ${APP_ROOT} ${APP_ROOT}
