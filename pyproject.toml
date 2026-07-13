@@ -23,10 +23,10 @@ documentation = "https://github.com/app-sre/er-cloudflare-account"
 [dependency-groups]
 dev = [
     "external-resources-io[cli]==0.7.0",
-    "mypy==2.1.0",
+    "mypy==2.2.0",
     "pytest==9.1.1",
     "pytest-cov==7.1.0",
-    "ruff==0.15.20",
+    "ruff==0.15.21",
 ]
 
 [project.scripts]
