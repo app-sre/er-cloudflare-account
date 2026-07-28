@@ -106,7 +106,7 @@ def mock_non_dry_run(monkeypatch: pytest.MonkeyPatch) -> None:
 
 
 def test_import_account_only(
-    mock_non_dry_run: None,  # noqa: ARG001
+    mock_non_dry_run: None,  # ruff: ignore[unused-function-argument]
     mock_terraform_run: MagicMock,
     mock_cloudflare: MagicMock,
     mock_read_input: MagicMock,
@@ -125,7 +125,7 @@ def test_import_account_only(
 
 
 def test_import_account_with_members(
-    mock_non_dry_run: None,  # noqa: ARG001
+    mock_non_dry_run: None,  # ruff: ignore[unused-function-argument]
     mock_terraform_run: MagicMock,
     mock_cloudflare: MagicMock,
     mock_read_input: MagicMock,
@@ -156,7 +156,7 @@ def test_import_account_with_members(
 
 
 def test_member_not_found_fails(
-    mock_non_dry_run: None,  # noqa: ARG001
+    mock_non_dry_run: None,  # ruff: ignore[unused-function-argument]
     mock_terraform_run: MagicMock,
     mock_cloudflare: MagicMock,
     mock_read_input: MagicMock,
@@ -178,7 +178,7 @@ def test_member_not_found_fails(
 
 
 def test_import_failure_exits_with_error(
-    mock_non_dry_run: None,  # noqa: ARG001
+    mock_non_dry_run: None,  # ruff: ignore[unused-function-argument]
     mock_terraform_run: MagicMock,
     mock_cloudflare: MagicMock,
     mock_read_input: MagicMock,
@@ -197,7 +197,7 @@ def test_import_failure_exits_with_error(
 
 
 def test_dry_run_flag(
-    mock_dry_run: None,  # noqa: ARG001
+    mock_dry_run: None,  # ruff: ignore[unused-function-argument]
     mock_terraform_run: MagicMock,
     mock_cloudflare: MagicMock,
     mock_read_input: MagicMock,
