@@ -10,8 +10,8 @@ license = { text = "Apache 2.0" }
 readme = "README.md"
 requires-python = "~= 3.14.0"
 dependencies = [
-    "cloudflare==5.7.0",
-    "external-resources-io==0.7.1",
+    "cloudflare==5.9.0",
+    "external-resources-io==0.7.2",
     "pydantic==2.13.5",
 ]
 
@@ -22,11 +22,11 @@ documentation = "https://github.com/app-sre/er-cloudflare-account"
 
 [dependency-groups]
 dev = [
-    "external-resources-io[cli]==0.7.1",
-    "mypy==2.3.1",
+    "external-resources-io[cli]==0.7.2",
+    "mypy==2.4.0",
     "pytest==9.1.1",
     "pytest-cov==7.1.0",
-    "ruff==0.16.9",
+    "ruff==0.16.10",
 ]
 
 [project.scripts]
