@@ -12,7 +12,7 @@ requires-python = "~= 3.14.0"
 dependencies = [
     "cloudflare==5.9.0",
     "external-resources-io==0.7.2",
-    "pydantic==2.14.1",
+    "pydantic==2.14.2",
 ]
 
 [project.urls]
@@ -23,10 +23,10 @@ documentation = "https://github.com/app-sre/er-cloudflare-account"
 [dependency-groups]
 dev = [
     "external-resources-io[cli]==0.7.2",
-    "mypy==2.4.0",
-    "pytest==9.1.1",
+    "mypy==2.4.1",
+    "pytest==9.2.0",
     "pytest-cov==7.1.0",
-    "ruff==0.17.2",
+    "ruff==0.17.3",
 ]
 
 [project.scripts]
