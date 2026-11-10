@@ -1,6 +1,6 @@
 [project]
 name = "er-cloudflare-account"
-version = "0.4.0"
+version = "0.5.0"
 description = "ERv2 module for managing Cloudflare Account"
 authors = [
     # Feel free to add or change authors
