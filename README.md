@@ -36,6 +36,13 @@ DRY_RUN=True import-tfstate
 DRY_RUN=False import-tfstate
 ```
 
+### Member Permissions
+
+Cloudflare deprecated the Account Roles API in favor of the Permission Groups
+API. The module resolves each `members[].roles` value to an account-scoped
+Cloudflare permission group and assigns it through an allow policy scoped to
+the account resource group. Values must be permission group names.
+
 ## Development
 
 ### Setup
