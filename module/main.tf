@@ -15,14 +15,21 @@ data "cloudflare_account_permission_groups" "permission_group" {
 }
 
 locals {
-  permission_group_id_by_name = {
+  permission_group_ids_by_name = {
     for role_name, groups in data.cloudflare_account_permission_groups.permission_group :
-    role_name => one([
+    role_name => [
       for group in groups.result :
       group.id
       if group.meta.scopes == "com.cloudflare.api.account"
-    ])
+    ]
   }
+
+  permission_group_id_by_name = {
+    for role_name, ids in local.permission_group_ids_by_name :
+    role_name => length(ids) == 1 ? ids[0] : null
+  }
+
+  resource_group_id = length(data.cloudflare_resource_groups.account.result[*].id) == 1 ? data.cloudflare_resource_groups.account.result[0].id : null
 }
 
 resource "cloudflare_account" "this" {
@@ -47,7 +54,7 @@ resource "cloudflare_account_member" "this" {
       { id = local.permission_group_id_by_name[role_name] }
     ]
     resource_groups = [{
-      id = data.cloudflare_resource_groups.account.result[0].id
+      id = local.resource_group_id
     }]
   }]
 
@@ -60,6 +67,11 @@ resource "cloudflare_account_member" "this" {
         permission_group_id != null
       ])
       error_message = "Every member role must resolve to exactly one account-scoped Cloudflare permission group."
+    }
+
+    precondition {
+      condition     = local.resource_group_id != null
+      error_message = "The account must expose exactly one Cloudflare account resource group."
     }
   }
 }
